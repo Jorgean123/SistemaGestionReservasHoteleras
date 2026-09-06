@@ -1,0 +1,42 @@
+erDiagram
+    CLIENTES ||--o{ RESERVAS : realiza
+    HABITACIONES ||--o{ RESERVAS : recibe
+    CLIENTES {
+        bigint id PK
+        varchar documento UK
+        varchar nombre
+        varchar telefono
+        varchar email
+        datetime fecha_registro
+    }
+    HABITACIONES {
+        bigint id PK
+        varchar numero UK
+        enum tipo
+        int capacidad
+        decimal precio_noche
+        bit habilitada
+        varchar descripcion
+    }
+    RESERVAS {
+        bigint id PK
+        bigint cliente_id FK
+        bigint habitacion_id FK
+        date fecha_entrada
+        date fecha_salida
+        bigint noches
+        int numero_huespedes
+        decimal precio_noche
+        decimal total
+        enum estado
+        datetime fecha_creacion
+        varchar observaciones
+    }
+    USUARIOS {
+        bigint id PK
+        varchar username UK
+        varchar password
+        varchar nombre
+        varchar rol
+        bit activo
+    }

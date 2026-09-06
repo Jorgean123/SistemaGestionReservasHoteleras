@@ -1,0 +1,75 @@
+{
+  "fecha": "2026-09-05T20:37:39.620548",
+  "base_url": "http://localhost:8080/hotel",
+  "resultados": [
+    {
+      "prueba": "GET /panel responde 200",
+      "resultado": "OK"
+    },
+    {
+      "prueba": "GET /reservas responde 200",
+      "resultado": "OK"
+    },
+    {
+      "prueba": "GET /habitaciones responde 200",
+      "resultado": "OK"
+    },
+    {
+      "prueba": "GET /huespedes responde 200",
+      "resultado": "OK"
+    },
+    {
+      "prueba": "GET /nueva-reserva responde 200",
+      "resultado": "OK"
+    },
+    {
+      "prueba": "Rechazo CSRF",
+      "resultado": "OK"
+    },
+    {
+      "prueba": "Registro de huésped y escape HTML",
+      "resultado": "OK"
+    },
+    {
+      "prueba": "Documento duplicado responde 409",
+      "resultado": "OK"
+    },
+    {
+      "prueba": "Creación de reserva por formulario y fechas día/mes/año",
+      "resultado": "OK"
+    },
+    {
+      "prueba": "Importe persistido S/ 435.00",
+      "resultado": "OK"
+    },
+    {
+      "prueba": "Solapamiento devuelve 400 con explicación",
+      "resultado": "OK"
+    },
+    {
+      "prueba": "Fechas invertidas rechazadas",
+      "resultado": "OK"
+    },
+    {
+      "prueba": "Capacidad excedida rechazada",
+      "resultado": "OK"
+    },
+    {
+      "prueba": "Transición a CONFIRMADA",
+      "resultado": "OK"
+    },
+    {
+      "prueba": "Transición a CANCELADA",
+      "resultado": "OK"
+    },
+    {
+      "prueba": "Filtros de reservas",
+      "resultado": "OK"
+    },
+    {
+      "prueba": "Reserva tras cancelación",
+      "resultado": "OK"
+    }
+  ],
+  "limpieza": "Registros temporales eliminados"
+}

@@ -1,0 +1,8 @@
+flowchart LR
+    A[Recepción: navegador HTML5 / CSS3] -->|GET y POST| B[Tomcat 11: HotelServlet]
+    B --> C[Rules: validación]
+    B --> D[HotelDao: SQL parametrizado]
+    D --> E[Database: JDBC Connector/J]
+    E --> F[(MySQL: hotel_reservas)]
+    B -->|Atributos de solicitud| G[JSP en WEB-INF/views]
+    G -->|HTML escapado| A

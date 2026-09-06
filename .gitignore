@@ -1,0 +1,8 @@
+/target/
+/.tools/
+/.local/
+*.log
+/.idea/
+/entrega/
+~$*
+__pycache__/

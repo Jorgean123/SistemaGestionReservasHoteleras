@@ -1,0 +1,1 @@
+Abrir panel.html para recorrer la estructura estática. Para operar datos, usar http://localhost:8080/hotel/. Copias HTML obtenidas del servidor; no son capturas ni revisión visual. Tokens CSRF sustituidos.
