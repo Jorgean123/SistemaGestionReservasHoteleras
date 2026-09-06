@@ -301,7 +301,7 @@ El script scripts/http_smoke.py reproduce las pruebas HTTP con la biblioteca est
 
 URL del repositorio: https://github.com/Jorgean123/SistemaGestionReservasHoteleras
 
-El repositorio pertenece a la cuenta Jorgean123 y contiene el código fuente, esquema SQL, documentación y evidencias del avance. Se utiliza la rama main. El archivo .gitignore excluye dependencias descargadas, archivos temporales y artefactos de compilación. La contraseña de MySQL permanece en la configuración local de Tomcat y no forma parte del repositorio. README.md incluye el comando para clonar el proyecto.
+El repositorio fue creado en la cuenta Jorgean123 para alojar el código fuente, esquema SQL, documentación y evidencias del avance. La publicación está pendiente de habilitar acceso de escritura a la conexión GitHub: el intento de subida devolvió HTTP 403, Resource not accessible by integration. El proyecto está preparado localmente en la rama main. El archivo .gitignore excluye dependencias descargadas, archivos temporales y artefactos de compilación. La contraseña de MySQL permanece en la configuración local de Tomcat y no forma parte de los archivos preparados para publicar.
 
 Antes de la entrega académica deben completarse el NRC del curso, el código universitario del tercer integrante y la revisión visual de las pantallas. El código, los scripts SQL, el manual de ejecución y las evidencias funcionales se incluyen también en la entrega local.
 
