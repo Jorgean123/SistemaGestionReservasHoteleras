@@ -299,11 +299,11 @@ El script scripts/http_smoke.py reproduce las pruebas HTTP con la biblioteca est
 
 ## 6.2. Enlace al repositorio de código (GitHub)
 
-URL del repositorio: PENDIENTE DE PROPORCIONAR POR EL EQUIPO.
+URL del repositorio: https://github.com/Jorgean123/SistemaGestionReservasHoteleras
 
-Se inicializó un repositorio Git local y se preparó .gitignore para excluir dependencias descargadas, archivos temporales y artefactos de compilación. No se inventó un enlace GitHub ni se publicó en una cuenta no indicada. README.md explica cómo registrar el remoto y publicar una vez que el equipo indique la URL real. Este punto no está completo hasta que se publique y se compruebe el acceso al repositorio.
+El repositorio pertenece a la cuenta Jorgean123 y contiene el código fuente, esquema SQL, documentación y evidencias del avance. Se utiliza la rama main. El archivo .gitignore excluye dependencias descargadas, archivos temporales y artefactos de compilación. La contraseña de MySQL permanece en la configuración local de Tomcat y no forma parte del repositorio. README.md incluye el comando para clonar el proyecto.
 
-Antes de la entrega académica deben completarse el NRC del curso, el código universitario del tercer integrante, el enlace GitHub y la revisión visual de las pantallas. El código, los scripts SQL, el manual de ejecución y las evidencias funcionales se incluyen en la entrega local.
+Antes de la entrega académica deben completarse el NRC del curso, el código universitario del tercer integrante y la revisión visual de las pantallas. El código, los scripts SQL, el manual de ejecución y las evidencias funcionales se incluyen también en la entrega local.
 
 <!-- PAGEBREAK -->
 

@@ -12,7 +12,7 @@ with ZipFile(dest,'w',ZIP_DEFLATED) as z:
                     continue
                 archive_path='docs/Informe_APF1.docx' if path==updated else path.relative_to(root)
                 z.write(path,archive_path)
-    for file in ['pom.xml','README.md','.gitignore']:z.write(root/file,file)
+    for file in ['pom.xml','README.md','.gitignore','nbactions.xml']:z.write(root/file,file)
     z.write(root/'target/hotel.war','distribucion/hotel.war')
 with ZipFile(dest) as z:
     assert z.testzip() is None

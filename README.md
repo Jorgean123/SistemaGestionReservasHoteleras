@@ -92,12 +92,12 @@ Este avance no implementa autenticación, roles, edición de tarifas, check-in/c
 
 Informe: `docs/Informe_APF1.docx` y fuente editable `docs/Informe_APF1.md`.
 
-Pendientes del equipo: NRC, código universitario de Sandro Johnatan Zea Carrasco y enlace GitHub. No se inventó una URL ni se publicó el código en una cuenta no indicada. Para publicar, cree un repositorio y configure su URL real:
+Repositorio: [Jorgean123/SistemaGestionReservasHoteleras](https://github.com/Jorgean123/SistemaGestionReservasHoteleras).
+
+Si el informe original está abierto en Word, la versión más reciente se guarda como `docs/Informe_APF1_actualizado.docx` y se incluye como `Informe_APF1.docx` en el ZIP.
+
+Pendientes del equipo: NRC y código universitario de Sandro Johnatan Zea Carrasco. Para descargar el código:
 
 ```powershell
-git add .
-git commit -m "Implementar avance APF1 de reservas hoteleras"
-git branch -M main
-git remote add origin URL_REAL_DEL_REPOSITORIO
-git push -u origin main
+git clone https://github.com/Jorgean123/SistemaGestionReservasHoteleras.git
 ```
