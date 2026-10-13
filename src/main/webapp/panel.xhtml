@@ -1,0 +1,16 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="jakarta.faces.facelets" xmlns:h="jakarta.faces.html" xmlns:f="jakarta.faces.core" template="/WEB-INF/templates/layout.xhtml">
+<ui:param name="page" value="panel"/><ui:define name="title">Vista general</ui:define><ui:define name="subtitle">Disponibilidad, huéspedes y reservas en un solo lugar.</ui:define>
+<ui:define name="content">
+<div class="row g-3 mb-4">
+ <div class="col-6 col-lg-3"><div class="card h-100"><div class="card-body"><p class="metric-label">Habitaciones ocupadas hoy</p><div class="metric">#{hotelBean.occupied}<span class="fs-6 text-secondary"> / #{hotelBean.rooms.size()}</span></div><p class="metric-foot mb-0">Reservas confirmadas en estancia</p></div></div></div>
+ <div class="col-6 col-lg-3"><div class="card h-100"><div class="card-body"><p class="metric-label">Reservas pendientes</p><div class="metric">#{hotelBean.pending}</div><p class="metric-foot mb-0">Por confirmar en recepción</p></div></div></div>
+ <div class="col-6 col-lg-3"><div class="card h-100"><div class="card-body"><p class="metric-label">Huéspedes registrados</p><div class="metric">#{hotelBean.guestCount}</div><p class="metric-foot mb-0">Directorio de huéspedes</p></div></div></div>
+ <div class="col-6 col-lg-3"><div class="card h-100"><div class="card-body"><p class="metric-label">Valor confirmado</p><div class="metric fs-3">#{hotelBean.confirmed}</div><p class="metric-foot mb-0">Histórico de reservas; no son cobros</p></div></div></div>
+</div>
+<div class="row g-4"><div class="col-lg-8"><div class="card"><div class="card-body d-flex justify-content-between"><h2 class="mb-0">Reservas registradas</h2><h:link outcome="reservas" value="Ver todas →" styleClass="section-link"/></div><div class="table-responsive">
+<h:dataTable value="#{hotelBean.bookings}" var="r" rows="5" styleClass="table" rendered="#{not empty hotelBean.bookings}">
+<h:column><f:facet name="header">Huésped</f:facet><h:outputText value="#{r.nombre}"/></h:column><h:column><f:facet name="header">Habitación</f:facet>#{r.numero}</h:column><h:column><f:facet name="header">Entrada</f:facet>#{r.entrada}</h:column><h:column><f:facet name="header">Estado</f:facet><span class="status #{r.estado}">#{r.estado}</span></h:column>
+</h:dataTable><h:panelGroup layout="block" styleClass="empty" rendered="#{empty hotelBean.bookings}">Aún no hay reservas. Registre un huésped y prepare su primera estancia.</h:panelGroup></div></div>
+<div class="helper mt-4"><h2>Un flujo sencillo para cada estancia</h2><p class="mb-0 small">Registre al huésped, seleccione habitación y fechas, y confirme la reserva. El sistema verifica capacidad y disponibilidad antes de guardarla.</p></div></div>
+<div class="col-lg-4"><div class="card"><div class="card-body"><h2 class="mb-3">Accesos de recepción</h2><h:link outcome="huespedes" value="Registrar un huésped →" styleClass="d-block section-link py-3 border-bottom"/><h:link outcome="habitaciones" value="Consultar habitaciones →" styleClass="d-block section-link py-3 border-bottom"/><h:link outcome="reservas" value="Buscar una reserva →" styleClass="d-block section-link py-3"/><p class="hint mb-0 mt-2">Las reservas pendientes y confirmadas bloquean sus fechas. Al cancelar, la habitación vuelve a estar disponible.</p></div></div></div></div>
+</ui:define></ui:composition>

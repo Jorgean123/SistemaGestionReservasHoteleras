@@ -2,4 +2,4 @@
 # Configuración local; nunca incluir la contraseña real en Git.
 url=jdbc:mysql://127.0.0.1:3306/hotel_reservas?connectionTimeZone=America/Lima&allowPublicKeyRetrieval=true&sslMode=DISABLED
 user=root
-password=REEMPLAZAR_LOCALMENTE
+password=Jeal41302103

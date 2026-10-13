@@ -1,0 +1,65 @@
+{
+  "base": "http://localhost:8088/hotel",
+  "results": [
+    {
+      "name": "Ruta JSF panel",
+      "passed": true
+    },
+    {
+      "name": "Ruta JSF habitaciones",
+      "passed": true
+    },
+    {
+      "name": "Ruta JSF huespedes",
+      "passed": true
+    },
+    {
+      "name": "Ruta JSF reservas",
+      "passed": true
+    },
+    {
+      "name": "Ruta JSF nueva-reserva",
+      "passed": true
+    },
+    {
+      "name": "Validación JSF obligatorios",
+      "passed": true
+    },
+    {
+      "name": "Alta de huésped JSF con redirección",
+      "passed": true
+    },
+    {
+      "name": "Búsqueda en h:dataTable",
+      "passed": true
+    },
+    {
+      "name": "Reserva JSF persistida",
+      "passed": true
+    },
+    {
+      "name": "Confirmación JSF",
+      "passed": true
+    },
+    {
+      "name": "Filtro por estado y documento",
+      "passed": true
+    },
+    {
+      "name": "Cancelación JSF",
+      "passed": true
+    },
+    {
+      "name": "POST sin ViewState rechazado",
+      "passed": true
+    },
+    {
+      "name": "Navegación móvil Bootstrap",
+      "passed": true
+    },
+    {
+      "name": "Captura de configuración real",
+      "passed": true
+    }
+  ]
+}

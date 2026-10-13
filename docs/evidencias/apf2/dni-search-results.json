@@ -1,0 +1,35 @@
+{
+  "base": "http://localhost:8088/hotel/reservas.xhtml",
+  "results": [
+    {
+      "document": "45154878",
+      "guest": "Jorge Acosta Loyola",
+      "reservation": 27,
+      "room": "101",
+      "checkIn": "2026-10-14",
+      "checkOut": "2026-10-16",
+      "state": "PENDIENTE",
+      "passed": true
+    },
+    {
+      "document": "45784512",
+      "guest": "César Anchorena Pérez",
+      "reservation": 35,
+      "room": "102",
+      "checkIn": "2026-10-18",
+      "checkOut": "2026-10-20",
+      "state": "PENDIENTE",
+      "passed": true
+    },
+    {
+      "document": "16261548",
+      "guest": "Sandro Johnatan Zea Carrasco",
+      "reservation": 36,
+      "room": "201",
+      "checkIn": "2026-10-21",
+      "checkOut": "2026-10-23",
+      "state": "PENDIENTE",
+      "passed": true
+    }
+  ]
+}

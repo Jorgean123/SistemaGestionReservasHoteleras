@@ -4,9 +4,9 @@ Proyecto APF1 de Desarrollo Web Integrado. Prototipo local de recepción con Jav
 
 ## Abrir el sistema
 
-**http://localhost:8080/hotel/**
+**http://localhost:8088/hotel/**
 
-El WAR está desplegado en `C:\apache-tomcat-11.0.24\webapps\hotel.war`. Se usa la base MySQL existente `hotel_reservas`; se conservan las cinco habitaciones originales y sus tarifas. No se requiere iniciar sesión: autenticación y roles quedan fuera de este avance.
+El WAR se despliega en `C:\apache-tomcat-11.0.24\webapps\hotel.war`. Tomcat usa el puerto 8088 para no interferir con los servicios XAMPP que ya ocupan 8080 y 8081. En este equipo, `hotel_reservas` se creó desde `sql/schema.sql` y `sql/seed_habitaciones.sql` porque no existía; contiene cinco habitaciones iniciales, sin huéspedes ni reservas recuperados. No se requiere iniciar sesión: autenticación y roles quedan fuera de este avance.
 
 ## Funcionalidades
 
@@ -22,12 +22,11 @@ El WAR está desplegado en `C:\apache-tomcat-11.0.24\webapps\hotel.war`. Se usa 
 
 | Componente | Versión |
 |---|---|
-| JDK de compilación | Eclipse Temurin 21.0.6 |
-| JDK del Tomcat existente | Oracle JDK 25.0.3 |
+| JDK de compilación y Tomcat | Eclipse Temurin 25.0.2 (`--release 21`) |
 | Maven | 3.9.11 |
-| Tomcat | 11.0.24, puerto 8080 |
+| Tomcat | 11.0.24, puerto 8088 |
 | Servlet / JSP | Jakarta Servlet 6.1 / Jakarta Pages 4.0 |
-| MySQL | 9.0.1 |
+| MySQL | 8.0.46 |
 | Connector/J | 9.7.0 |
 | Pruebas | JUnit Jupiter 5.11.4 |
 
@@ -42,6 +41,16 @@ powershell -ExecutionPolicy Bypass -File scripts/deploy.ps1
 
 Maven está disponible localmente en `.tools/apache-maven-3.9.11`. Para otra máquina, instale JDK 21 y Maven 3.9.11 y ejecute `mvn verify`. Copie `target/hotel.war` a `webapps` de Tomcat.
 
+Para iniciar Tomcat en esta máquina:
+
+```powershell
+$env:JAVA_HOME='C:\Program Files\Eclipse Adoptium\jdk-25.0.2.10-hotspot'
+$env:JRE_HOME=$env:JAVA_HOME
+$env:CATALINA_HOME='C:\apache-tomcat-11.0.24'
+$env:CATALINA_BASE=$env:CATALINA_HOME
+& "$env:CATALINA_HOME\bin\startup.bat"
+```
+
 Las pruebas JDBC se activan con `HOTEL_INTEGRATION=true` y requieren acceso a MySQL. Crean habitaciones, huéspedes y reservas temporales y eliminan únicamente esos registros. Sin esa variable se ejecutan solo las seis pruebas unitarias. La configuración puede leerse mediante `-Dcatalina.base=C:\apache-tomcat-11.0.24`.
 
 ## Configuración MySQL
@@ -50,7 +59,7 @@ La contraseña se almacena fuera del proyecto y del WAR, en `C:\apache-tomcat-11
 
 La conexión actual utiliza `root`, como exige el enunciado. `sslMode=DISABLED` corresponde a esta conexión local. Para instalaciones remotas deben configurarse TLS y credenciales con permisos limitados.
 
-`sql/schema.sql` documenta el esquema existente, sin datos ni contraseñas y sin sentencias DROP TABLE. No necesita ejecutarse sobre la base actual. Para una instalación nueva, cree `hotel_reservas` con UTF-8, importe el esquema y luego ejecute `sql/seed_habitaciones.sql`. No se incluyen datos personales ni usuarios originales.
+`sql/schema.sql` documenta el esquema sin datos ni contraseñas y sin sentencias DROP TABLE. En este equipo se ejecutó porque `hotel_reservas` no existía; luego se ejecutó `sql/seed_habitaciones.sql`. Para otra instalación nueva, cree `hotel_reservas` con UTF-8, importe el esquema y cargue el catálogo inicial. No se recuperaron huéspedes, reservas ni usuarios anteriores.
 
 ## Recorrido de demostración
 
@@ -84,9 +93,9 @@ docs/                Informe APF1, diagramas y evidencias
 
 ## Verificación y límites
 
-Se ejecutaron 11 pruebas Java/JDBC y 17 comprobaciones HTTP. Los resultados están en `docs/evidencias`. Se verifica concurrencia, reversión de transacciones, XSS por escape, CSRF, validación y persistencia. El navegador de la sesión no estuvo disponible; no se afirma haber realizado revisión visual ni interacción manual en navegador. La adaptación móvil está implementada mediante CSS y debe verificarse visualmente antes de exposición final.
+En esta recuperación, `scripts/build.ps1 -Integration` compiló el WAR y pasó 11 pruebas Java/JDBC (5 de integración y 6 unitarias). También se comprobaron cinco rutas HTTP, todas con respuesta 200, y la visualización de las cinco habitaciones iniciales. Las 17 comprobaciones de `docs/evidencias/http-resultados.json` son evidencia previa; no se repitieron aquí porque Python no está instalado. El script `scripts/http_smoke.py` permite configurar `HOTEL_BASE_URL` y `MYSQL_BIN` para volver a ejecutarlas. El navegador de la sesión no estuvo disponible; no se afirma haber realizado revisión visual ni interacción manual en navegador. La adaptación móvil está implementada mediante CSS y debe verificarse visualmente antes de exposición final.
 
-Este avance no implementa autenticación, roles, edición de tarifas, check-in/check-out operacional, facturación ni pagos. `usuarios` se conserva como parte de la base original para futuras iteraciones. El acceso debe limitarse al entorno académico local.
+Este avance no implementa autenticación, roles, edición de tarifas, check-in/check-out operacional, facturación ni pagos. La tabla `usuarios` está vacía y se conserva para futuras iteraciones. El acceso debe limitarse al entorno académico local.
 
 ## Informe y repositorio
 

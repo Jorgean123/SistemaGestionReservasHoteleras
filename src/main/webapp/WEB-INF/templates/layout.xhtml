@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="jakarta.faces.html" xmlns:ui="jakarta.faces.facelets" lang="es">
+<h:head>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title><ui:insert name="title">Panel</ui:insert> · Gestión hotelera</title>
+  <h:outputStylesheet library="vendor" name="bootstrap.min.css"/>
+  <h:outputStylesheet library="css" name="hotel.css"/>
+</h:head>
+<h:body>
+<nav class="navbar navbar-expand-lg navbar-dark hotel-nav" aria-label="Navegación principal">
+ <div class="container-xl"><h:link outcome="panel" styleClass="navbar-brand"><span class="brand-icon">H</span> Gestión hotelera</h:link>
+ <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir navegación"><span class="navbar-toggler-icon"></span></button>
+ <div class="collapse navbar-collapse" id="menu"><div class="navbar-nav ms-auto gap-lg-2">
+ <h:link outcome="panel" value="Vista general" styleClass="nav-link #{page eq 'panel' ? 'active' : ''}"/>
+ <h:link outcome="reservas" value="Reservas" styleClass="nav-link #{page eq 'reservas' ? 'active' : ''}"/>
+ <h:link outcome="habitaciones" value="Habitaciones" styleClass="nav-link #{page eq 'habitaciones' ? 'active' : ''}"/>
+ <h:link outcome="huespedes" value="Huéspedes" styleClass="nav-link #{page eq 'huespedes' ? 'active' : ''}"/>
+ </div></div></div>
+</nav>
+<main class="container-xl py-4 py-lg-5">
+ <div class="d-flex justify-content-between align-items-start flex-wrap gap-3 mb-4"><div><p class="eyebrow">OPERACIONES · RECEPCIÓN</p><h1><ui:insert name="title"/></h1><p class="text-secondary mb-0"><ui:insert name="subtitle"/></p></div>
+ <h:link outcome="nueva-reserva" value="＋ Nueva reserva" styleClass="btn btn-primary" rendered="#{page ne 'nueva-reserva'}"/></div>
+ <h:messages id="messages" styleClass="messages" infoClass="alert alert-success" errorClass="alert alert-danger" warnClass="alert alert-warning"/>
+ <ui:insert name="content"/>
+</main>
+<footer class="container-xl py-4 border-top d-flex justify-content-between flex-wrap gap-2 text-secondary small"><span>Sistema de Gestión y Reservas Hoteleras</span><span>Recepción · <h:outputText value="#{hotelBean.today}"/></span></footer>
+<h:outputScript library="vendor" name="bootstrap.bundle.min.js" target="body"/>
+</h:body></html>

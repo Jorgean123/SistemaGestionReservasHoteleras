@@ -1,1 +1,1 @@
-document.querySelectorAll('form').forEach(f => f.addEventListener('submit', e => {e.preventDefault(); alert('Esta es una referencia estática. Use http://localhost:8080/hotel/ para guardar o buscar datos.');}));
+document.querySelectorAll('form').forEach(f => f.addEventListener('submit', e => {e.preventDefault(); alert('Esta es una referencia estática. Use http://localhost:8088/hotel/ para guardar o buscar datos.');}));

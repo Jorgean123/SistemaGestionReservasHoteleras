@@ -4,7 +4,8 @@ import re, json, uuid, datetime, subprocess, os
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
-BASE='http://localhost:8080/hotel'
+BASE=os.environ.get('HOTEL_BASE_URL','http://localhost:8088/hotel')
+MYSQL=os.environ.get('MYSQL_BIN',r'C:\Program Files\MySQL\MySQL Server 8.0\bin\mysql.exe')
 opener=urllib.request.build_opener(urllib.request.HTTPCookieProcessor(http.cookiejar.CookieJar()))
 results=[]
 def call(path, data=None):
@@ -21,7 +22,7 @@ for line in Path('C:/apache-tomcat-11.0.24/conf/hotel-db.properties').read_text(
         k,v=line.split('=',1);config[k]=v
 def sql(statement):
     env=os.environ.copy();env['MYSQL_PWD']=config['password']
-    return subprocess.run(['C:/Program Files/MySQL/MySQL Server 9.0/bin/mysql.exe','-h','127.0.0.1','-u',config['user'],'hotel_reservas','--batch','--skip-column-names','--default-character-set=utf8mb4','-e',statement],env=env,capture_output=True,check=True).stdout.decode('utf-8').strip()
+    return subprocess.run([MYSQL,'-h','127.0.0.1','-u',config['user'],'hotel_reservas','--batch','--skip-column-names','--default-character-set=utf8mb4','-e',statement],env=env,capture_output=True,check=True).stdout.decode('utf-8').strip()
 document='H'+uuid.uuid4().hex[:12]
 room_number='H'+uuid.uuid4().hex[:8]
 guest=room=None
